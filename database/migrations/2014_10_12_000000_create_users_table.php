@@ -23,27 +23,27 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-
-            DB::unprepared('
-                    CREATE TRIGGER increase_follower_count AFTER INSERT ON followers
-                    FOR EACH ROW
-                    BEGIN
-                        UPDATE users SET followers_count = followers_count + 1 
-                        WHERE id = NEW.following_id
-                    END
-            ');
-
-            DB::unprepared('
-                    CREATE TRIGGER decrease_follower_count 
-                    AFTER DELETE ON followers
-                    FOR EACH ROW
-                    BEGIN
-                        UPDATE users SET followers_count = followers_count - 1 
-                        WHERE id = NEW.following_id
-                    END
-            ');
         });
+
+
+        DB::unprepared('
+        CREATE TRIGGER increase_follower_count AFTER INSERT ON followers
+        FOR EACH ROW
+        BEGIN
+            UPDATE users SET followers_count = followers_count + 1 
+            WHERE id = NEW.following_id
+        END
+        ');
+
+        DB::unprepared('
+                CREATE TRIGGER decrease_follower_count 
+                AFTER DELETE ON followers
+                FOR EACH ROW
+                BEGIN
+                    UPDATE users SET followers_count = followers_count - 1 
+                    WHERE id = NEW.following_id
+                END
+        ');
     }
 
     /**
