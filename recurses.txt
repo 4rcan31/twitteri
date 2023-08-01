@@ -1,0 +1,16 @@
+Videos que voy a ocupar para hacer este proyecto
+
+https://desarrolloweb.com/articulos/crear-proyecto-laravel-composer.html 
+https://webdevetc.com/blog/laravel-naming-conventions/
+https://twitter.com/
+https://www.youtube.com/watch?v=D_whQwqXfoc
+https://www.youtube.com/watch?v=96s2i-H7e0w
+
+
+
+Recursos interesantes durante el proyecto
+
+https://openwebinars.net/blog/que-es-json-web-token-y-como-funciona/
+https://www.developerro.com/2019/03/12/jwt-api-authentication/
+https://www.cursosdesarrolloweb.es/blog/laravel-sanctum
+https://cosasdedevs.com/posts/creacion-de-modelos-y-migracion-de-tablas-con-laravel-8/
