@@ -33,6 +33,16 @@ return new class extends Migration
                         WHERE id = NEW.following_id
                     END
             ');
+
+            DB::unprepared('
+                    CREATE TRIGGER decrease_follower_count 
+                    AFTER DELETE ON followers
+                    FOR EACH ROW
+                    BEGIN
+                        UPDATE users SET followers_count = followers_count - 1 
+                        WHERE id = NEW.following_id
+                    END
+            ');
         });
     }
 
@@ -42,6 +52,7 @@ return new class extends Migration
     public function down(): void
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `increase_follower_count`');
+        DB::unprepared('DROP TRIGGER IF EXISTS `decrease_follower_count`');
         Schema::dropIfExists('users');
     }
 };
