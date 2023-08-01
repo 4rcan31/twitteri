@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users_users', function (Blueprint $table) {
             $table->foreign('follower_id')->references('id')->on('users');
             $table->foreign('following_id')->references('id')->on('users'); 
+            $table->primary(['follower_id', 'following_id']);
             $table->timestamps();
         });
     }
