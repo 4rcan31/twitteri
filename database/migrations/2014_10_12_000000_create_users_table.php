@@ -27,7 +27,8 @@ return new class extends Migration
 
 
         DB::unprepared('
-        CREATE TRIGGER increase_follower_count AFTER INSERT ON followers
+        CREATE TRIGGER increase_follower_count 
+        AFTER INSERT ON followers
         FOR EACH ROW
         BEGIN
             UPDATE users SET followers_count = followers_count + 1 
